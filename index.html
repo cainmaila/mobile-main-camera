@@ -9,8 +9,10 @@
 </head>
 
 <body>
-    <div>555</div>
+    <div>666</div>
+    <video id="video" width="640" height="480" autoplay></video>
     <script>
+        var video = document.getElementById("video")
         navigator.mediaDevices.enumerateDevices().then(function (devices) {
             devices = devices.filter(function (devices) {
                 return devices.kind === 'videoinput';
@@ -42,8 +44,9 @@
 
         });
 
-        function successCallback(val) {
-            console.log(val)
+        function successCallback(stream) {
+            video.src = stream
+            video.play()
         }
     </script>
 </body>
