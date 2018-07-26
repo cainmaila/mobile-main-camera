@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div>44</div>
+    <div>55</div>
     <video id="video" width="640" height="480" autoplay muted></video>
     <script>
         var video = document.getElementById("video")
@@ -19,6 +19,7 @@
             });
             var videoinput_id = '';
             devices.forEach(function (device) {
+                console.log(device.label)
                 if (device.label.toLowerCase().search("back") === -1) {
                     videoinput_id = device.deviceId;
                 }
