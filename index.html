@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div>55</div>
+    <div>44</div>
     <video id="video" width="640" height="480" autoplay muted></video>
     <script>
         var video = document.getElementById("video")
@@ -26,6 +26,7 @@
             if (videoinput_id != '') {
                 console.log(11)
                 navigator.mediaDevices.getUserMedia({
+                    audio: false,
                     video: {
                         deviceId: {
                             'exact': videoinput_id
@@ -36,6 +37,7 @@
             } else {
                 console.log(22)
                 navigator.mediaDevices.getUserMedia({
+                    audio: false,
                     video: {
                         facingMode: 'environment'
                     }
