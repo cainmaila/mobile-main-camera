@@ -47,9 +47,8 @@
         });
 
         function successCallback(stream) {
-            console.log(stream)
-            video.src = stream
-            video.play()
+            video.src = window.URL.createObjectURL(stream)
+            // video.play()
         }
     </script>
 </body>
