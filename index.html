@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div>666</div>
+    <div>55</div>
     <video id="video" width="640" height="480" autoplay muted></video>
     <script>
         var video = document.getElementById("video")
@@ -45,6 +45,7 @@
         });
 
         function successCallback(stream) {
+            console.log(stream)
             video.src = stream
             video.play()
         }
