@@ -11,10 +11,40 @@
 <body>
     <div>TEST222</div>
     <script>
-        console.log(123)
-        setInterval(function () {
-            console.log(123)
-        }, 1000)
+        navigator.mediaDevices.enumerateDevices().then(function (devices) {
+            devices = devices.filter(function (devices) {
+                return devices.kind === 'videoinput';
+            });
+            var videoinput_id = '';
+            devices.forEach(function (device) {
+                if (device.label.toLowerCase().search("back") & gt; - 1) {
+                    videoinput_id = device.deviceId;
+                }
+            });
+            if (videoinput_id != '') {
+                console.log(11)
+                navigator.mediaDevices.getUserMedia({
+                    video: {
+                        deviceId: {
+                            'exact': videoinput_id
+                        },
+                        facingMode: 'environment'
+                    }
+                }).then(successCallback);
+            } else {
+                console.log(22)
+                navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: 'environment'
+                    }
+                }).then(successCallback);
+            }
+
+        });
+
+        function successCallback(val) {
+            console.log(val)
+        }
     </script>
 </body>
 
